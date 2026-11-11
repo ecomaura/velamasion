@@ -111,3 +111,23 @@ nav.main{font-size:.72rem;letter-spacing:.18em}
 .elements h3{color:var(--esp)}
 footer{background:#3B2519}
 @media(max-width:960px){.logo{font-size:1.05rem;letter-spacing:.16em}.strip{grid-template-columns:1fr 1fr}.strip div:nth-child(3){border-left:0}.strip div:nth-child(n+3){border-top:1px solid var(--line)}.aside span{display:none}}
+/* richer highlights, fragrance list and reviews */
+h1,h2{text-wrap:balance}
+.strip{background:#F7F4F0}.strip div{align-items:center;gap:6px;padding:34px 12px}
+.ico{width:48px;height:48px;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;margin-bottom:8px;color:#8A6D3F}
+.ico svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round}
+.t{width:56px;height:56px;border-radius:50%;padding:0;font-size:0;flex:none}.t::after{display:none}
+.fam{max-width:480px}.fam a{display:grid;grid-template-columns:56px 1fr auto;gap:18px;align-items:center;padding:16px 8px;font:inherit;transition:background .3s}
+.fam a:hover{background:#FAF8F5;padding-left:8px;color:inherit}.fam b{display:block;font:500 1.55rem/1.2 var(--serif);color:var(--esp)}
+.fam em{font-style:normal;font-size:.85rem;color:var(--sage)}.fam i{font-style:normal;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:#8A6D3F;border-bottom:1px solid var(--gold)}
+.framed{margin:0}.framed .ph{outline:1px solid var(--gold);outline-offset:14px}
+.framed figcaption{margin-top:30px;font:italic 1.1rem var(--serif);color:var(--sage)}
+.center{text-align:center}.center p{margin:14px auto 0;color:var(--sage)}
+.revs{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
+.rev{margin:0;background:#fff;border:1px solid var(--line);padding:36px 32px;display:flex;flex-direction:column;gap:18px;position:relative}
+.rev::before{content:'';position:absolute;top:0;left:32px;width:44px;height:2px;background:var(--gold)}
+.stars{color:var(--gold);letter-spacing:.2em;font-size:.95rem}
+.rev blockquote{border:0;padding:0;font-size:1.5rem;line-height:1.35;color:var(--esp)}
+.rev figcaption{display:flex;align-items:center;gap:14px;margin-top:auto;padding-top:22px;border-top:1px solid var(--line)}
+.rev figcaption b{display:block;font:500 .9rem var(--sans);color:var(--esp)}.rev figcaption em{font-style:normal;font-size:.8rem;color:var(--sage)}
+@media(max-width:960px){.revs{grid-template-columns:1fr}.framed .ph{outline-offset:10px}.strip div:nth-child(3){border-left:0}}
