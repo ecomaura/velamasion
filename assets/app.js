@@ -1,28 +1,21 @@
 /* Vela Maison storefront logic. In Shopify: products -> {{ collection.products }}, cart -> /cart/add.js & /cart.js */
 const FREE_SHIP = 1499;
 const PRODUCTS = [
-  {id:'fresh', name:'Fresh', family:'Air', cat:'Fresh', price:899, img:'assets/fresh.jpg', notes:'Sea salt, white tea, green leaves', tag:'Bestseller',
-   desc:'A breath of clarity. Light, refreshing and effortlessly elegant, made for moments when you want to feel renewed.', top:'Bergamot, sea salt', heart:'White tea, jasmine', base:'Soft musk, driftwood'},
-  {id:'coffee', name:'Coffee', family:'Earth', cat:'Coffee', price:899, img:'assets/coffee.jpg', notes:'Roasted coffee, vanilla bean, cacao', tag:'Most loved',
-   desc:'A feeling of warmth. Rich, comforting and familiar, bringing depth and grounding to your surroundings.', top:'Espresso, cardamom', heart:'Roasted coffee, cacao', base:'Vanilla bean, amber'},
-  {id:'sweet', name:'Sweet', family:'Water', cat:'Sweet', price:899, img:'assets/sweet.jpg', notes:'Water lily, honey, soft vanilla', tag:'New',
-   desc:'A moment of softness. Delicate, smooth and indulgent, created for slower moments and quiet pleasures.', top:'Pear, lily petals', heart:'Honey, peony', base:'Soft vanilla, sandalwood'},
-  {id:'spice', name:'Spice', family:'Fire', cat:'Spice', price:899, img:'assets/spice.jpg', notes:'Cinnamon, star anise, clove', tag:'Winter favourite',
-   desc:'A spark of intensity. Warm, expressive and captivating, designed to awaken the senses and transform the atmosphere.', top:'Orange peel, clove', heart:'Cinnamon, star anise', base:'Cedar, tonka bean'},
-  {id:'set', name:'The Four Elements Set', family:'Gift set', cat:'Set', price:3299, img:'assets/lineup.jpg', notes:'All four candles in a gift box', tag:'Save ₹297',
-   desc:'Air, Earth, Water and Fire together: Fresh, Coffee, Sweet and Spice, boxed with a handwritten note.', top:'Fresh · Coffee', heart:'Sweet · Spice', base:'Gift box with note'}
+  {id:'fresh', name:'Fresh', family:'Air', price:899, img:'assets/fresh.jpg', desc:'A breath of clarity. Light, refreshing and effortlessly elegant, created for moments when you want to feel renewed.'},
+  {id:'coffee', name:'Coffee', family:'Earth', price:899, img:'assets/coffee.jpg', desc:'A feeling of warmth. Rich, comforting and familiar, bringing depth and grounding to your surroundings.'},
+  {id:'sweet', name:'Sweet', family:'Water', price:899, img:'assets/sweet.jpg', desc:'A moment of softness. Delicate, smooth and indulgent, created for slower moments and quiet pleasures.'},
+  {id:'spice', name:'Spice', family:'Fire', price:899, img:'assets/spice.jpg', desc:'A spark of intensity. Warm, expressive and captivating, designed to awaken the senses and transform the atmosphere.'}
 ];
 const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
 const money=n=>'₹'+n.toLocaleString('en-IN');
 let cart=[]; try{cart=JSON.parse(localStorage.getItem('vm-cart')||'[]')}catch(e){}
 const save=()=>{try{localStorage.setItem('vm-cart',JSON.stringify(cart))}catch(e){}};
 
-function renderGrid(f='All'){
-  $('#productGrid').innerHTML=PRODUCTS.filter(p=>f==='All'||p.cat===f).map(p=>`
+function renderGrid(){
+  $('#productGrid').innerHTML=PRODUCTS.map(p=>`
   <article class="card">
-    <div class="card__img" data-view="${p.id}" tabindex="0" role="button" aria-label="View ${p.name}"><img src="${p.img}" alt="${p.name} candle by Vela Maison" loading="lazy"><span class="card__tag">${p.tag}</span></div>
-    <div class="card__body"><h3>${p.name}</h3><p class="card__notes">${p.notes}</p>
-    <div class="card__row"><span class="price">${money(p.price)}</span><button class="add" data-add="${p.id}">Add to cart</button></div></div>
+    <div class="card__img" data-view="${p.id}" tabindex="0" role="button" aria-label="View ${p.name}"><img src="${p.img}" alt="${p.name} candle by Vela Maison" loading="lazy"><button class="card__add" data-add="${p.id}">Add to cart</button></div>
+    <div class="card__meta"><div><h3>${p.name}</h3><small>${p.family}</small></div><span class="card__price">${money(p.price)}</span></div>
   </article>`).join('');
 }
 function renderCart(){
@@ -30,7 +23,7 @@ function renderCart(){
   const total=items.reduce((s,i)=>s+i.p.price*i.q,0), count=items.reduce((s,i)=>s+i.q,0);
   $('[data-cart-count]').textContent=count; $('#cartTotal').textContent=money(total);
   $('#cartItems').innerHTML=items.length?items.map(i=>`<div class="line"><img src="${i.p.img}" alt="">
-    <div><h4>${i.p.name}</h4><small>${i.p.family} · ${money(i.p.price)}</small>
+    <div><h4>${i.p.name}</h4><small>${money(i.p.price)}</small>
     <div class="qty"><button data-dec="${i.id}" aria-label="Decrease">−</button><span>${i.q}</span><button data-inc="${i.id}" aria-label="Increase">+</button></div>
     <button class="rm" data-rm="${i.id}">Remove</button></div><strong>${money(i.p.price*i.q)}</strong></div>`).join('')
     :`<div class="empty"><p>Your cart is empty.</p><a class="btn" href="#collection" data-close>Shop candles</a></div>`;
@@ -46,15 +39,15 @@ function drawer(open){$('#cart').classList.toggle('on',open);$('.overlay').class
 function view(id){const p=PRODUCTS.find(x=>x.id===id);
   $('#modalBox').innerHTML=`<button class="modal__x" data-close-modal aria-label="Close">✕</button><img src="${p.img}" alt="${p.name} candle">
   <div class="modal__info"><h2>${p.name}</h2><span class="price">${money(p.price)}</span><p>${p.desc}</p>
-  <dl><dt>Top</dt><dd>${p.top}</dd><dt>Heart</dt><dd>${p.heart}</dd><dt>Base</dt><dd>${p.base}</dd><dt>Size</dt><dd>${p.id==='set'?'4 × 200 g':'200 g · 45+ hours'}</dd></dl>
+  <dl><dt>Family</dt><dd>${p.family}</dd><dt>Vessel</dt><dd>Amber glass, walnut lid</dd></dl>
   <button class="btn" data-add="${p.id}" data-close-modal>Add to cart</button></div>`;
   $('#modal').classList.add('on');$('#modal').setAttribute('aria-hidden','false');}
 const closeModal=()=>{$('#modal').classList.remove('on');$('#modal').setAttribute('aria-hidden','true');};
 
 document.addEventListener('click',e=>{
-  const t=e.target.closest('button,a,[data-view],.modal');if(!t)return;
+  const t=e.target.closest('button,a,[data-view],.modal');if(t&&t.dataset.view&&t.tagName==='A')e.preventDefault();if(!t)return;
   const d=t.dataset;
-  if(d.add){add(d.add)} if(d.view)view(d.view);
+  if(d.add){e.stopPropagation();add(d.add)} else if(d.view)view(d.view);
   if(d.inc){cart.find(x=>x.id===d.inc).q++;renderCart()}
   if(d.dec){const c=cart.find(x=>x.id===d.dec);c.q--;if(c.q<1)cart=cart.filter(x=>x!==c);renderCart()}
   if(d.rm){cart=cart.filter(x=>x.id!==d.rm);renderCart()}
@@ -62,8 +55,7 @@ document.addEventListener('click',e=>{
   if('closeModal' in d||t.id==='modal')closeModal();
   if('menuToggle' in d)$('#nav').classList.toggle('on');
   if(t.closest('#nav'))$('#nav').classList.remove('on');
-  if(d.filter){const f=d.filter;renderGrid(f);$$('.chip').forEach(c=>c.classList.toggle('is-active',c.dataset.filter===f));}
-  if(t.id==='checkoutBtn')toast(cart.length?'This is a demo store. Checkout connects once the theme is live on Shopify.':'Add a candle to your cart first.');
+    if(t.id==='checkoutBtn')toast(cart.length?'This is a demo store. Checkout connects once the theme is live on Shopify.':'Add a candle to your cart first.');
 });
 document.addEventListener('keydown',e=>{
   if(e.key==='Escape'){drawer(false);closeModal()}
