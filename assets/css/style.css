@@ -91,3 +91,4 @@ details{border-top:1px solid rgba(41,35,31,.2);padding:16px 0}details:last-of-ty
 @media(max-width:520px){.grid{gap:14px}.card .acts{flex-direction:column}.fgrid{grid-template-columns:1fr}.bar{padding:14px 20px}.co,.qv .info{padding:28px 22px}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
 .logo{display:flex;align-items:center;gap:10px}
+.hero>.ph{background-position:72% 50%}
