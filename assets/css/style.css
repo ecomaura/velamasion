@@ -92,3 +92,22 @@ details{border-top:1px solid rgba(41,35,31,.2);padding:16px 0}details:last-of-ty
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
 .logo{display:flex;align-items:center;gap:10px}
 .hero>.ph{background-position:72% 50%}
+/* white theme, inspired by editorial luxury candle sites */
+:root{--ivory:#fff;--line:#E9E4DD}
+body{background:#fff}.sand{background:#F7F4F0}.co .note{background:#F7F4F0}
+.ph{background-color:#F3EFEA}.hero>.ph{background-color:#3a261c}
+main h2,main h3{color:var(--esp)}
+.bar{display:grid;grid-template-columns:1fr auto 1fr;align-items:center}
+.lft{display:flex;align-items:center;gap:20px}.icons{justify-content:flex-end}
+.logo{font-size:1.45rem;letter-spacing:.22em;text-transform:uppercase;justify-content:center}
+nav.main{font-size:.72rem;letter-spacing:.18em}
+.head{align-items:center}.aside{display:flex;align-items:center;gap:22px;font-size:.9rem;color:var(--sage)}.aside span{max-width:26ch;line-height:1.4}
+.btn.tan{background:#C9A27A;border-color:#C9A27A;color:var(--esp);padding:10px 22px;font-size:.7rem}.btn.tan:hover{background:var(--esp);border-color:var(--esp);color:#fff}
+.card .mood{font-style:italic;font-family:var(--serif);font-size:1.05rem}
+.strip{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line);text-align:center}
+.strip div{padding:30px 12px;display:flex;flex-direction:column;gap:2px}.strip div+div{border-left:1px solid var(--line)}
+.strip b{font:500 .75rem var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--esp)}.strip span{font-size:.85rem;color:var(--sage)}
+.fam{margin-top:28px;max-width:420px}.fam a{display:block;padding:14px 0;border-top:1px solid var(--line);font:1.6rem var(--serif);transition:padding .3s,color .3s}.fam a:last-child{border-bottom:1px solid var(--line)}.fam a:hover{padding-left:10px;color:var(--gold)}
+.elements h3{color:var(--esp)}
+footer{background:#3B2519}
+@media(max-width:960px){.logo{font-size:1.05rem;letter-spacing:.16em}.strip{grid-template-columns:1fr 1fr}.strip div:nth-child(3){border-left:0}.strip div:nth-child(n+3){border-top:1px solid var(--line)}.aside span{display:none}}
