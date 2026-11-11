@@ -1,103 +1,11 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Vela Maison | Candles for the moments that matter</title>
-<meta name="description" content="Candles in four scent families: Fresh, Coffee, Sweet and Spice. Amber glass jars with walnut lids.">
-<link rel="icon" href="assets/favicon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/style.css">
-</head>
-<body>
-
-<!-- section: announcement-bar -->
-<div class="announce">Complimentary shipping on orders over ₹1,499</div>
-
-<!-- section: header -->
-<header class="header">
-  <button class="icon-btn menu-btn" aria-label="Menu" data-menu-toggle><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M3 8h18M3 16h18"/></svg></button>
-  <nav class="nav" id="nav" aria-label="Main"><a href="#shop">Shop</a><a href="#scents">Scents</a><a href="#story">Our story</a></nav>
-  <a class="wordmark" href="#top">Vela Maison</a>
-  <button class="cart-btn" data-cart-open aria-label="Open cart">Cart <span data-cart-count>0</span></button>
-</header>
-
-<main id="top">
-<!-- section: hero -->
-<section class="hero">
-  <div class="hero__text">
-    <p class="hero__kicker">Fresh · Coffee · Sweet · Spice</p>
-    <h1>Candles for the moments that matter</h1>
-    <p class="hero__sub">Four scents in amber glass with walnut lids, each made around a single feeling.</p>
-    <a class="btn" href="#shop">Shop the collection</a>
-  </div>
-  <div class="hero__img"><img src="assets/logo.jpg" alt="Vela Maison emblem with the line: Candles for the moments that matter" width="894" height="894"></div>
-</section>
-
-<!-- section: product-grid -->
-<section class="section" id="shop">
-  <div class="section__head"><h2>The collection</h2><p>Four candles, one for every mood.</p></div>
-  <div class="grid" id="productGrid"></div>
-</section>
-
-<!-- section: scent-guide -->
-<section class="section section--tint" id="scents">
-  <div class="section__head"><h2>Find your scent</h2><p>Choose by how you want the room to feel.</p></div>
-  <div class="guide">
-    <a href="#shop" data-view="fresh"><span>Air</span><h3>Fresh</h3><p>A breath of clarity. Light, refreshing and effortlessly elegant, created for moments when you want to feel renewed.</p></a>
-    <a href="#shop" data-view="coffee"><span>Earth</span><h3>Coffee</h3><p>A feeling of warmth. Rich, comforting and familiar, bringing depth and grounding to your surroundings.</p></a>
-    <a href="#shop" data-view="sweet"><span>Water</span><h3>Sweet</h3><p>A moment of softness. Delicate, smooth and indulgent, created for slower moments and quiet pleasures.</p></a>
-    <a href="#shop" data-view="spice"><span>Fire</span><h3>Spice</h3><p>A spark of intensity. Warm, expressive and captivating, designed to awaken the senses and transform the atmosphere.</p></a>
-  </div>
-</section>
-
-<!-- section: story -->
-<section class="section story" id="story">
-  <img src="assets/sweet.jpg" alt="Sweet candle beside a water lily" width="740" height="830" loading="lazy">
-  <div>
-    <h2>One feeling, one candle</h2>
-    <p>Vela Maison makes candles for the small pauses in a day: the first coffee, a quiet evening, a room that needs a change of mood.</p>
-    <p>Every scent starts from one feeling, and every jar is finished with a walnut lid so it looks at home on a shelf, a desk or a dining table.</p>
-    <a class="link" href="#shop">Shop the collection</a>
-  </div>
-</section>
-
-<!-- section: newsletter -->
-<section class="section news">
-  <h2>Stay in touch</h2>
-  <p>Be the first to hear about new scents and restocks.</p>
-  <form class="news__form" id="newsForm" novalidate>
-    <label class="sr" for="email">Email address</label>
-    <input id="email" type="email" placeholder="Email address" required autocomplete="email">
-    <button class="btn" type="submit">Subscribe</button>
-  </form>
-  <p class="news__msg" id="newsMsg" role="status"></p>
-</section>
-</main>
-
-<!-- section: footer -->
-<footer class="footer">
-  <a class="wordmark" href="#top">Vela Maison</a>
-  <nav aria-label="Footer"><a href="#shop">Shop</a><a href="#scents">Scents</a><a href="#story">Our story</a></nav>
-  <p>© 2026 Vela Maison</p>
-</footer>
-
-<!-- section: cart-drawer -->
-<div class="overlay" data-close></div>
-<aside class="drawer" id="cart" aria-label="Cart" aria-hidden="true">
-  <div class="drawer__head"><h3>Cart</h3><button class="icon-btn" data-close aria-label="Close cart">✕</button></div>
-  <div class="drawer__body" id="cartItems"></div>
-  <div class="drawer__foot">
-    <div class="ship" id="shipNote"></div>
-    <div class="row"><span>Subtotal</span><strong id="cartTotal">₹0</strong></div>
-    <button class="btn btn--full" id="checkoutBtn">Checkout</button>
-  </div>
-</aside>
-
-<!-- section: quick-view -->
-<div class="modal" id="modal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Product details"><div class="modal__box" id="modalBox"></div></div>
-<div class="toast" id="toast" role="status"></div>
-<script src="assets/app.js"></script>
-</body>
-</html>
+<!doctype html><html lang="en"><head><title>Vela Maison | Candles for the moments that matter</title><meta name="description" content="Vela Maison is a modern luxury home-fragrance brand. Candles inspired by the four elements."><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet"><link rel="icon" href="assets/images/favicon.png"><link rel="stylesheet" href="assets/css/style.css"></head>
+<body class="over"><main>
+<section class="hero"><div class="ph" data-src="hero.jpg" role="img" aria-label="Vela Maison candle in a warm interior"></div><div class="hero-in"><h1>Make room for the moments that matter.</h1><p>Thoughtfully crafted fragrances that transform everyday spaces into meaningful experiences.</p><div class="btns"><a class="btn fill" href="shop.html">Explore The Collection</a><a class="btn" href="about.html">Discover Our Story</a></div></div></section>
+<section class="wrap"><div class="split"><div><h2>More than a fragrance. A feeling.</h2><p>Vela Maison creates fragrances inspired by the four elements and the emotions each one carries: freedom, grounding, peace and passion.</p><p>Each candle is designed around a mood, so you can choose the atmosphere your space needs.</p><a class="btn" href="about.html">Our philosophy</a></div><div class="ph" data-src="intro.jpg" role="img" aria-label="Lifestyle photograph"></div></div></section>
+<section class="wrap sand" id="collection"><div class="head"><h2>Find your element.</h2><a class="btn" href="shop.html">Shop all</a></div><div class="grid" id="featured"></div><p class="demo">Prices shown are demo prices.</p></section>
+<section class="wrap dark"><h2>Every element tells a story.</h2><div class="elements"><div><div class="ph" data-src="element-air.jpg"></div><h3>Air</h3><p>Air gives us freedom.</p></div><div><div class="ph" data-src="element-earth.jpg"></div><h3>Earth</h3><p>Earth gives us grounding.</p></div><div><div class="ph" data-src="element-water.jpg"></div><h3>Water</h3><p>Water gives us peace.</p></div><div><div class="ph" data-src="element-fire.jpg"></div><h3>Fire</h3><p>Fire gives us passion.</p></div></div></section>
+<section class="wrap"><h2>Create your own atmosphere.</h2><div class="mag"><div class="ph" data-src="life-1.jpg" role="img" aria-label="Candle in a living room"></div><div class="ph" data-src="life-2.jpg" role="img" aria-label="Candle in a bedroom"></div><div class="ph" data-src="life-3.jpg" role="img" aria-label="Candle in a reading corner"></div></div></section>
+<section class="wrap dark"><div class="split flip"><div><h2>Crafted for the moments you remember.</h2><p>Vela Maison began with a simple idea: a fragrance can turn an ordinary hour into a ritual. Each candle is made to become part of the way you start, pause and end your day.</p><a class="btn fill" href="about.html">Discover Vela Maison</a></div><div class="ph" data-src="story.jpg" role="img" aria-label="Vela Maison craft"></div></div></section>
+<section class="wrap"><h2>Kind words</h2><div class="quotes"><blockquote>“It changed how my evenings feel.”<cite>Sample review, Customer A</cite></blockquote><blockquote>“The jar looks as good as it smells.”<cite>Sample review, Customer B</cite></blockquote><blockquote>“A gift I wish I had kept for myself.”<cite>Sample review, Customer C</cite></blockquote></div></section>
+<section class="wrap sand nl"><h2>A little warmth in your inbox.</h2><p>Discover new fragrances, thoughtful rituals, and moments worth slowing down for.</p><form id="nlForm"><input type="email" required placeholder="Your email address" aria-label="Email address"><button class="btn" style="border:0">Subscribe</button></form><p id="nlmsg" role="status"></p></section>
+</main><script src="assets/js/cart.js"></script><script src="assets/js/main.js"></script></body></html>
