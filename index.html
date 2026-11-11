@@ -3,96 +3,73 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Vela Maison — Candles for the moments that matter</title>
-<meta name="description" content="Hand-poured candles in four scent families: Fresh, Coffee, Sweet and Spice. Amber glass, walnut lids, clean-burning wax.">
+<title>Vela Maison | Candles for the moments that matter</title>
+<meta name="description" content="Candles in four scent families: Fresh, Coffee, Sweet and Spice. Amber glass jars with walnut lids.">
 <link rel="icon" href="assets/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
 
 <!-- section: announcement-bar -->
-<div class="announce">Free shipping on orders over ₹1,499 · Hand-poured in small batches</div>
+<div class="announce">Complimentary shipping on orders over ₹1,499</div>
 
 <!-- section: header -->
-<header class="header" id="header">
-  <button class="icon-btn menu-btn" aria-label="Open menu" data-menu-toggle><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 7h18M3 12h18M3 17h18"/></svg></button>
-  <nav class="nav" id="nav" aria-label="Main">
-    <a href="#collection">Shop</a><a href="#scents">Scent families</a><a href="#story">Our story</a><a href="#reviews">Reviews</a>
-  </nav>
-  <a class="logo" href="#top" aria-label="Vela Maison home"><img src="assets/logo.jpg" alt="Vela Maison" width="52" height="52"><span>Vela Maison</span></a>
-  <button class="cart-btn" data-cart-open aria-label="Open cart"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M5 8h14l-1 12H6L5 8Zm3.5 0V6.5a3.5 3.5 0 0 1 7 0V8"/></svg><span class="cart-count" data-cart-count>0</span></button>
+<header class="header">
+  <button class="icon-btn menu-btn" aria-label="Menu" data-menu-toggle><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M3 8h18M3 16h18"/></svg></button>
+  <nav class="nav" id="nav" aria-label="Main"><a href="#shop">Shop</a><a href="#scents">Scents</a><a href="#story">Our story</a></nav>
+  <a class="wordmark" href="#top">Vela Maison</a>
+  <button class="cart-btn" data-cart-open aria-label="Open cart">Cart <span data-cart-count>0</span></button>
 </header>
 
 <main id="top">
 <!-- section: hero -->
 <section class="hero">
-  <div class="hero__copy">
-    <h1>Light one.<br>Let the room change.</h1>
-    <p>Four scent families in amber glass with walnut lids. Poured by hand, slow-burning, made for the evenings you want to remember.</p>
-    <div class="hero__cta"><a class="btn" href="#collection">Shop candles</a><a class="btn btn--ghost" href="#scents">Find your scent</a></div>
-    <p class="hero__meta">200 g soy-blend wax · 45+ hour burn · Cotton wick</p>
+  <div class="hero__text">
+    <p class="hero__kicker">Fresh · Coffee · Sweet · Spice</p>
+    <h1>Candles for the moments that matter</h1>
+    <p class="hero__sub">Four scents in amber glass with walnut lids, each made around a single feeling.</p>
+    <a class="btn" href="#shop">Shop the collection</a>
   </div>
-  <div class="hero__media"><img src="assets/lineup.jpg" alt="The four Vela Maison candles: Fresh, Coffee, Sweet and Spice" width="1803" height="498"></div>
-</section>
-
-<!-- section: scent-families -->
-<section class="section" id="scents">
-  <div class="section__head"><h2>Choose by mood</h2><p>Each family is built around one feeling. Start with the one that sounds like tonight.</p></div>
-  <div class="families">
-    <a class="family" href="#collection" data-filter="Fresh"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M6 14c6-6 10 6 16 0s8 0 12-2M6 22c6-6 10 6 16 0s8 0 12-2M6 30c6-6 10 6 16 0s8 0 12-2"/></svg><h3>Air · Fresh</h3><p>Clarity and light. For moments when you want to feel renewed.</p></a>
-    <a class="family" href="#collection" data-filter="Coffee"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M20 5c-9 4-12 14-6 22 3 4 7 6 6 9 8-4 14-14 8-23-2-3-5-5-8-8Z"/><path d="M20 12v24"/></svg><h3>Earth · Coffee</h3><p>Warmth and depth. Rich, familiar, grounding.</p></a>
-    <a class="family" href="#collection" data-filter="Sweet"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M4 18c5-5 8 5 13 0s8 5 13 0 5 2 6 2M4 27c5-5 8 5 13 0s8 5 13 0 5 2 6 2"/></svg><h3>Water · Sweet</h3><p>Softness and indulgence for slower moments.</p></a>
-    <a class="family" href="#collection" data-filter="Spice"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M20 4c2 7 10 10 10 20a10 10 0 0 1-20 0c0-5 3-7 5-11 1 3 3 4 5 4-1-4 0-8 0-13Z"/></svg><h3>Fire · Spice</h3><p>A spark of intensity. Warm, expressive, captivating.</p></a>
-  </div>
+  <a class="hero__img" href="#shop" aria-label="Shop the collection"><img src="assets/coffee.jpg" alt="Coffee candle in amber glass with a walnut lid, resting on coffee beans" width="760" height="830"></a>
 </section>
 
 <!-- section: product-grid -->
-<section class="section section--dark" id="collection">
-  <div class="section__head"><h2>The collection</h2><p>Every candle is 200 g in amber glass with a hand-finished walnut lid.</p></div>
-  <div class="filters" role="tablist" aria-label="Filter by scent family">
-    <button class="chip is-active" data-filter="All">All</button><button class="chip" data-filter="Fresh">Fresh</button><button class="chip" data-filter="Coffee">Coffee</button><button class="chip" data-filter="Sweet">Sweet</button><button class="chip" data-filter="Spice">Spice</button>
-  </div>
+<section class="section" id="shop">
+  <div class="section__head"><h2>The collection</h2><p>Four candles, one for every mood.</p></div>
   <div class="grid" id="productGrid"></div>
 </section>
 
-<!-- section: feature-band -->
-<section class="band">
-  <div><strong>Clean-burning wax</strong><span>Soy-blend, free of paraffin</span></div>
-  <div><strong>Cotton wick</strong><span>Even melt, minimal smoke</span></div>
-  <div><strong>Refillable jar</strong><span>Amber glass, reuse after burning</span></div>
-  <div><strong>Gift ready</strong><span>Boxed with a handwritten note</span></div>
-</section>
-
-<!-- section: story -->
-<section class="story section" id="story">
-  <div class="story__media"><img src="assets/logo.jpg" alt="Vela Maison emblem" width="894" height="894" loading="lazy"></div>
-  <div class="story__copy">
-    <h2>Candles for the moments that matter</h2>
-    <p>Vela comes from the Latin word for sail, and maison is home. We make candles that carry you somewhere calm without leaving the room.</p>
-    <p>Each scent begins with one feeling and is built around it: fresh air after rain, a cup of coffee at dawn, something sweet and soft, a spice market at dusk. We pour in small batches so every jar is checked by hand before it leaves us.</p>
-    <a class="btn btn--ghost" href="#collection">Meet the candles</a>
+<!-- section: scent-guide -->
+<section class="section section--tint" id="scents">
+  <div class="section__head"><h2>Find your scent</h2><p>Choose by how you want the room to feel.</p></div>
+  <div class="guide">
+    <a href="#shop" data-view="fresh"><span>Air</span><h3>Fresh</h3><p>A breath of clarity. Light, refreshing and effortlessly elegant, created for moments when you want to feel renewed.</p></a>
+    <a href="#shop" data-view="coffee"><span>Earth</span><h3>Coffee</h3><p>A feeling of warmth. Rich, comforting and familiar, bringing depth and grounding to your surroundings.</p></a>
+    <a href="#shop" data-view="sweet"><span>Water</span><h3>Sweet</h3><p>A moment of softness. Delicate, smooth and indulgent, created for slower moments and quiet pleasures.</p></a>
+    <a href="#shop" data-view="spice"><span>Fire</span><h3>Spice</h3><p>A spark of intensity. Warm, expressive and captivating, designed to awaken the senses and transform the atmosphere.</p></a>
   </div>
 </section>
 
-<!-- section: reviews -->
-<section class="section section--dark" id="reviews">
-  <div class="section__head"><h2>Kind words</h2></div>
-  <div class="reviews">
-    <figure><blockquote>The Coffee candle makes my whole flat smell like a café on a rainy morning. I'm already on my second jar.</blockquote><figcaption>Ananya R., Ahmedabad</figcaption></figure>
-    <figure><blockquote>Sweet is soft and never sharp. It lasted every evening for three weeks and the throw filled my bedroom.</blockquote><figcaption>Meera S., Mumbai</figcaption></figure>
-    <figure><blockquote>I gifted the Spice candle at Diwali. The packaging alone got compliments, and the scent got more.</blockquote><figcaption>Karan P., Delhi</figcaption></figure>
+<!-- section: story -->
+<section class="section story" id="story">
+  <img src="assets/logo.jpg" alt="Vela Maison emblem" width="894" height="894" loading="lazy">
+  <div>
+    <h2>Made for the moments that matter</h2>
+    <p>Vela Maison makes candles for the small pauses in a day: the first coffee, a quiet evening, a room that needs a change of mood.</p>
+    <p>Every scent starts from one feeling, and every jar is finished with a walnut lid so it looks at home on a shelf, a desk or a dining table.</p>
+    <a class="link" href="#shop">Shop the collection</a>
   </div>
 </section>
 
 <!-- section: newsletter -->
 <section class="section news">
-  <h2>Join the Maison list</h2>
-  <p>New scents, restocks and 10% off your first order.</p>
+  <h2>Stay in touch</h2>
+  <p>Be the first to hear about new scents and restocks.</p>
   <form class="news__form" id="newsForm" novalidate>
     <label class="sr" for="email">Email address</label>
-    <input id="email" type="email" placeholder="you@example.com" required autocomplete="email">
+    <input id="email" type="email" placeholder="Email address" required autocomplete="email">
     <button class="btn" type="submit">Subscribe</button>
   </form>
   <p class="news__msg" id="newsMsg" role="status"></p>
@@ -101,17 +78,15 @@
 
 <!-- section: footer -->
 <footer class="footer">
-  <div class="footer__brand"><img src="assets/logo.jpg" alt="" width="72" height="72"><p>Candles for the moments that matter.</p></div>
-  <div><h4>Shop</h4><a href="#collection">All candles</a><a href="#scents">Scent families</a><a href="#collection">Gift set</a></div>
-  <div><h4>Maison</h4><a href="#story">Our story</a><a href="#reviews">Reviews</a><a href="#top">Back to top</a></div>
-  <div><h4>Care</h4><a href="#story">Burn guide: trim the wick to 5 mm and burn up to 4 hours at a time</a></div>
-  <p class="footer__legal">© 2026 Vela Maison. Demo storefront.</p>
+  <a class="wordmark" href="#top">Vela Maison</a>
+  <nav aria-label="Footer"><a href="#shop">Shop</a><a href="#scents">Scents</a><a href="#story">Our story</a></nav>
+  <p>© 2026 Vela Maison</p>
 </footer>
 
 <!-- section: cart-drawer -->
 <div class="overlay" data-close></div>
 <aside class="drawer" id="cart" aria-label="Cart" aria-hidden="true">
-  <div class="drawer__head"><h3>Your cart</h3><button class="icon-btn" data-close aria-label="Close cart">✕</button></div>
+  <div class="drawer__head"><h3>Cart</h3><button class="icon-btn" data-close aria-label="Close cart">✕</button></div>
   <div class="drawer__body" id="cartItems"></div>
   <div class="drawer__foot">
     <div class="ship" id="shipNote"></div>
