@@ -1,0 +1,41 @@
+{%- comment -%} Params: product (nil renders an editor placeholder card) {%- endcomment -%}
+{%- if product != blank -%}
+  {%- assign sub = product.metafields.custom.subtitle.value | default: product.type -%}
+  {%- assign img = product.featured_image -%}
+  {%- assign alt_text = img.alt | default: product.title -%}
+  <article class="card">
+    <a class="card-media media media--4x5 zoom" href="{{ product.url }}" aria-label="{{ product.title | escape }}">
+      {%- if img -%}
+        {{ img | image_url: width: 800 | image_tag: loading: 'lazy', sizes: '(min-width: 960px) 25vw, 50vw', widths: '300, 450, 600, 800', alt: alt_text }}
+      {%- else -%}
+        {{ 'product-1' | placeholder_svg_tag: 'media-placeholder' }}
+      {%- endif -%}
+      {%- if product.available == false -%}<span class="badge">Sold out</span>
+      {%- elsif product.compare_at_price > product.price -%}<span class="badge badge--gold">Sale</span>{%- endif -%}
+    </a>
+    <h3 class="card-title"><a href="{{ product.url }}">{{ product.title }}</a></h3>
+    {%- if sub != blank -%}<p class="card-sub">{{ sub }}</p>{%- endif -%}
+    {% render 'price', product: product %}
+    <div class="card-actions">
+      {%- if product.available and product.variants.size == 1 -%}
+        {%- form 'product', product, data-ajax-cart: 'true' -%}
+          <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+          <button class="btn btn--solid btn--sm" type="submit">Quick add</button>
+          <p class="form-msg form-msg--error" data-form-error hidden></p>
+        {%- endform -%}
+      {%- elsif product.available -%}
+        <a class="btn btn--solid btn--sm" href="{{ product.url }}">Choose options</a>
+      {%- else -%}
+        <span class="btn btn--sm" aria-disabled="true">Sold out</span>
+      {%- endif -%}
+      <a class="btn btn--sm" href="{{ product.url }}">Details</a>
+    </div>
+  </article>
+{%- else -%}
+  <article class="card card--empty">
+    <div class="card-media media media--4x5">{{ 'product-1' | placeholder_svg_tag: 'media-placeholder' }}</div>
+    <h3 class="card-title">Product name</h3>
+    <p class="card-sub">Add products to this collection</p>
+    <span class="price"><span class="price-now">{{ 0 | money }}</span></span>
+  </article>
+{%- endif -%}

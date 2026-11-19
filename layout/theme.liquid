@@ -43,7 +43,7 @@
   <script>document.documentElement.className = document.documentElement.className.replace('no-js', 'js');</script>
   <script src="{{ 'theme.js' | asset_url }}" defer></script>
 </head>
-<body class="template-{{ template.name | handle }}">
+<body class="template-{{ template.name | handle }}{% if settings.image_zoom %} zoom-on{% endif %}{% if settings.image_frame %} frame-on{% endif %}">
   <a class="skip-link" href="#MainContent">{{ 'general.skip_to_content' | t }}</a>
 
   {% sections 'header-group' %}

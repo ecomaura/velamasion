@@ -1,0 +1,57 @@
+{
+  "sections": {
+    "hero": { "type": "hero", "settings": { "layout": "split" } },
+    "featured": { "type": "featured-collection", "settings": { "bg": "ivory", "products_count": 4, "columns": 4 } },
+    "highlights": {
+      "type": "icon-strip",
+      "blocks": {
+        "h1": { "type": "item", "settings": { "icon": "leaf", "title": "Soy wax", "text": "7 oz amber jar" } },
+        "h2": { "type": "item", "settings": { "icon": "sparkle", "title": "Clean fragrance", "text": "As stated on the label" } },
+        "h3": { "type": "item", "settings": { "icon": "pin", "title": "Poured in India", "text": "Vela Maison" } },
+        "h4": { "type": "item", "settings": { "icon": "gift", "title": "Free shipping", "text": "On orders above ₹999" } }
+      },
+      "block_order": ["h1", "h2", "h3", "h4"],
+      "settings": { "bg": "alt" }
+    },
+    "families": {
+      "type": "fragrance-families",
+      "blocks": {
+        "f1": { "type": "family", "settings": { "title": "Floral & soft", "subtitle": "Cherry Blossom · Royal Rose", "link": "/collections/all" } },
+        "f2": { "type": "family", "settings": { "title": "Warm & rich", "subtitle": "Amber", "link": "/collections/all" } },
+        "f3": { "type": "family", "settings": { "title": "Earthy & woody", "subtitle": "Patchouli", "link": "/collections/all" } }
+      },
+      "block_order": ["f1", "f2", "f3"],
+      "settings": { "bg": "ivory" }
+    },
+    "elements": {
+      "type": "image-columns",
+      "blocks": {
+        "e1": { "type": "column", "settings": { "title": "Air", "text": "Air gives us freedom." } },
+        "e2": { "type": "column", "settings": { "title": "Earth", "text": "Earth gives us grounding." } },
+        "e3": { "type": "column", "settings": { "title": "Water", "text": "Water gives us peace." } },
+        "e4": { "type": "column", "settings": { "title": "Fire", "text": "Fire gives us passion." } }
+      },
+      "block_order": ["e1", "e2", "e3", "e4"],
+      "settings": { "bg": "alt" }
+    },
+    "gallery": {
+      "type": "gallery",
+      "blocks": { "g1": { "type": "image" }, "g2": { "type": "image" }, "g3": { "type": "image" } },
+      "block_order": ["g1", "g2", "g3"],
+      "settings": { "bg": "ivory" }
+    },
+    "story": { "type": "image-with-text", "settings": { "bg": "alt", "image_left": true } },
+    "reviews": {
+      "type": "reviews",
+      "blocks": {
+        "r1": { "type": "review", "settings": { "name": "Customer name", "product": "Amber", "quote": "It changed how my evenings feel. The room is warmer the moment it is lit." } },
+        "r2": { "type": "review", "settings": { "name": "Customer name", "product": "Cherry Blossom", "quote": "The jar looks as good as it smells. It lives on my coffee table now." } },
+        "r3": { "type": "review", "settings": { "name": "Customer name", "product": "Royal Rose", "quote": "A gift I wish I had kept for myself. Elegant from the label to the lid." } }
+      },
+      "block_order": ["r1", "r2", "r3"],
+      "settings": { "bg": "ivory", "text": "Sample reviews. Replace with your own." }
+    },
+    "newsletter": { "type": "newsletter", "settings": { "bg": "forest" } }
+  },
+  "order": ["hero", "featured", "highlights", "families", "elements", "gallery", "story", "reviews", "newsletter"]
+}

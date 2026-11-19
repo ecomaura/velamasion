@@ -6,9 +6,6 @@
   var $ = function (s, r) { return (r || document).querySelector(s); };
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
 
-  /* Photography flags */
-  body.classList.add('zoom-on', 'frame-on');
-
   /* Drawers + modals (event delegation survives section re-renders) */
   var lastFocus = null;
   function closeAll() {
