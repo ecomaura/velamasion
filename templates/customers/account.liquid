@@ -1,0 +1,42 @@
+<section class="section">
+  <div class="container acct">
+    <div class="acct-head">
+      <div><span class="eyebrow">Account</span><h1>Welcome, {{ customer.first_name | default: customer.email }}</h1></div>
+      <a class="link-arrow" href="{{ routes.account_logout_url }}">Log out</a>
+    </div>
+    <div class="acct-grid">
+      <div>
+        <h2 style="font-size:2rem;margin-bottom:18px">Order history</h2>
+        {%- paginate customer.orders by 10 -%}
+          {%- if customer.orders.size > 0 -%}
+            <div class="table-wrap">
+              <table class="acct-table">
+                <thead><tr><th>Order</th><th>Date</th><th>Payment</th><th>Fulfilment</th><th class="num">Total</th></tr></thead>
+                <tbody>
+                  {%- for order in customer.orders -%}
+                    <tr>
+                      <td><a class="link-arrow" href="{{ order.customer_url }}">{{ order.name }}</a></td>
+                      <td>{{ order.created_at | time_tag: format: 'date' }}</td>
+                      <td>{{ order.financial_status_label }}</td>
+                      <td>{{ order.fulfillment_status_label }}</td>
+                      <td class="num">{{ order.total_price | money }}</td>
+                    </tr>
+                  {%- endfor -%}
+                </tbody>
+              </table>
+            </div>
+            {% render 'pagination', paginate: paginate %}
+          {%- else -%}
+            <p class="muted">You haven't placed any orders yet.</p><p style="margin-top:20px"><a class="btn btn--solid" href="{{ routes.all_products_collection_url }}">Start shopping</a></p>
+          {%- endif -%}
+        {%- endpaginate -%}
+      </div>
+      <aside class="acct-card">
+        <h3>Account details</h3>
+        <p>{{ customer.name }}<br>{{ customer.email }}</p>
+        {%- if customer.default_address -%}<p class="muted" style="margin-top:14px">{{ customer.default_address | format_address }}</p>{%- endif -%}
+        <p style="margin-top:18px"><a class="link-arrow" href="{{ routes.account_addresses_url }}">Manage addresses ({{ customer.addresses_count }})</a></p>
+      </aside>
+    </div>
+  </div>
+</section>

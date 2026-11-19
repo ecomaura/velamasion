@@ -1,0 +1,23 @@
+{%- comment -%} Params: address (customer.new_address or an existing address), uid {%- endcomment -%}
+{%- form 'customer_address', address -%}
+  {%- if form.errors -%}<p class="form-msg form-msg--error" role="alert">{{ form.errors | default_errors }}</p>{%- endif -%}
+  <div class="field-row">
+    <div class="field"><label for="a-fn-{{ uid }}">First name</label><input id="a-fn-{{ uid }}" name="address[first_name]" value="{{ form.first_name }}" autocomplete="given-name"></div>
+    <div class="field"><label for="a-ln-{{ uid }}">Last name</label><input id="a-ln-{{ uid }}" name="address[last_name]" value="{{ form.last_name }}" autocomplete="family-name"></div>
+  </div>
+  <div class="field"><label for="a-co-{{ uid }}">Company</label><input id="a-co-{{ uid }}" name="address[company]" value="{{ form.company }}" autocomplete="organization"></div>
+  <div class="field"><label for="a-a1-{{ uid }}">Address</label><input id="a-a1-{{ uid }}" name="address[address1]" value="{{ form.address1 }}" autocomplete="address-line1"></div>
+  <div class="field"><label for="a-a2-{{ uid }}">Apartment, suite, etc.</label><input id="a-a2-{{ uid }}" name="address[address2]" value="{{ form.address2 }}" autocomplete="address-line2"></div>
+  <div class="field-row">
+    <div class="field"><label for="a-ci-{{ uid }}">City</label><input id="a-ci-{{ uid }}" name="address[city]" value="{{ form.city }}" autocomplete="address-level2"></div>
+    <div class="field"><label for="a-zi-{{ uid }}">PIN / postal code</label><input id="a-zi-{{ uid }}" name="address[zip]" value="{{ form.zip }}" autocomplete="postal-code"></div>
+  </div>
+  <div class="field-row">
+    <div class="field"><label for="a-co2-{{ uid }}">Country</label><select id="a-co2-{{ uid }}" name="address[country]" autocomplete="country-name">{{ all_country_option_tags }}</select></div>
+    <div class="field"><label for="a-pr-{{ uid }}">State / province</label><input id="a-pr-{{ uid }}" name="address[province]" value="{{ form.province }}" autocomplete="address-level1"></div>
+  </div>
+  <div class="field"><label for="a-ph-{{ uid }}">Phone</label><input id="a-ph-{{ uid }}" type="tel" name="address[phone]" value="{{ form.phone }}" autocomplete="tel"></div>
+  <label class="check-inline"><input type="checkbox" name="address[default]" value="1"{% if form.default %} checked{% endif %}> Set as default address</label>
+  <button class="btn btn--solid" type="submit">Save address</button>
+  <script>(function(){var s=document.getElementById('a-co2-{{ uid }}');if(s&&'{{ form.country | escape }}'){s.value='{{ form.country | escape }}';}})();</script>
+{%- endform -%}

@@ -1,0 +1,27 @@
+<section class="section">
+  <div class="container acct acct-narrow">
+    <div class="center"><span class="eyebrow">Account</span><h1>Log in</h1></div>
+    <div id="login">
+      {%- form 'customer_login', novalidate: 'novalidate' -%}
+        {%- if form.errors -%}<p class="form-msg form-msg--error" role="alert">{{ form.errors | default_errors }}</p>{%- endif -%}
+        <div class="field"><label for="CustomerEmail">Email</label><input id="CustomerEmail" type="email" name="customer[email]" autocomplete="email" required></div>
+        {%- if form.password_needed -%}
+          <div class="field"><label for="CustomerPassword">Password</label><input id="CustomerPassword" type="password" name="customer[password]" autocomplete="current-password" required></div>
+        {%- endif -%}
+        <button class="btn btn--solid btn--block" type="submit">Sign in</button>
+      {%- endform -%}
+      <p class="acct-alt"><a href="#recover" onclick="document.getElementById('recover').hidden=false;document.getElementById('login').hidden=true;return false">Forgot your password?</a> · <a href="{{ routes.account_register_url }}">Create account</a></p>
+    </div>
+    <div id="recover" hidden>
+      <h3 style="margin-bottom:12px">Reset your password</h3>
+      {%- form 'recover_customer_password' -%}
+        {%- if form.posted_successfully? -%}<p class="form-msg" role="status">We've sent you an email with a link to reset your password.</p>{%- endif -%}
+        {%- if form.errors -%}<p class="form-msg form-msg--error" role="alert">{{ form.errors | default_errors }}</p>{%- endif -%}
+        <div class="field"><label for="RecoverEmail">Email</label><input id="RecoverEmail" type="email" name="email" autocomplete="email" required></div>
+        <button class="btn btn--solid btn--block" type="submit">Send reset link</button>
+      {%- endform -%}
+      <p class="acct-alt"><a href="#login" onclick="document.getElementById('login').hidden=false;document.getElementById('recover').hidden=true;return false">Back to log in</a></p>
+    </div>
+  </div>
+</section>
+<script>if (location.hash === '#recover') { document.getElementById('recover').hidden = false; document.getElementById('login').hidden = true; }</script>

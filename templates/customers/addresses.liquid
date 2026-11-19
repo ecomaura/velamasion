@@ -1,0 +1,28 @@
+<section class="section">
+  <div class="container acct">
+    <div class="acct-head">
+      <div><span class="eyebrow">Account</span><h1>Addresses</h1></div>
+      <a class="link-arrow" href="{{ routes.account_url }}">Back to account</a>
+    </div>
+    <details class="addr" {% if customer.new_address.errors.size > 0 %}open{% endif %}>
+      <summary class="btn btn--sm" style="display:inline-flex">Add a new address</summary>
+      <div style="margin-top:22px">{% render 'address-form', address: customer.new_address, uid: 'new' %}</div>
+    </details>
+    {%- paginate customer.addresses by 6 -%}
+      <div class="addr-grid">
+        {%- for address in customer.addresses -%}
+          <div class="addr">
+            {%- if address == customer.default_address -%}<span class="eyebrow">Default</span>{%- endif -%}
+            <address>{{ address | format_address }}</address>
+            <div class="addr-actions">
+              <button class="line-remove" type="button" style="margin:0" onclick="if(confirm('Delete this address?')){Shopify.postLink('{{ address.url }}',{parameters:{_method:'delete'}})}">Delete</button>
+            </div>
+            <details><summary>Edit</summary><div style="margin-top:18px">{% render 'address-form', address: address, uid: address.id %}</div></details>
+          </div>
+        {%- endfor -%}
+      </div>
+      {% render 'pagination', paginate: paginate %}
+    {%- endpaginate -%}
+  </div>
+</section>
+<script src="{{ 'shopify_common.js' | shopify_asset_url }}"></script>
