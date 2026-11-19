@@ -1,0 +1,21 @@
+<section class="section">
+  <div class="container page-narrow">
+    <div class="center"><span class="eyebrow">Contact</span><h1>{{ page.title }}</h1>
+      {%- if page.content != blank -%}<div class="rte muted" style="margin:16px auto 0">{{ page.content }}</div>{%- endif -%}
+    </div>
+    {%- form 'contact', id: 'ContactForm', class: 'contact-form' -%}
+      {%- if form.posted_successfully? -%}<p class="form-msg" role="status">Thank you. We'll be in touch soon.</p>{%- endif -%}
+      {%- if form.errors -%}<p class="form-msg form-msg--error" role="alert">{{ form.errors | default_errors }}</p>{%- endif -%}
+      <div class="field-row">
+        <div class="field"><label for="CF-name">Name</label><input id="CF-name" name="contact[name]" autocomplete="name" value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"></div>
+        <div class="field"><label for="CF-email">Email</label><input id="CF-email" type="email" name="contact[email]" required autocomplete="email" value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"></div>
+      </div>
+      <div class="field"><label for="CF-phone">Phone (optional)</label><input id="CF-phone" type="tel" name="contact[phone]" autocomplete="tel" value="{{ form.phone }}"></div>
+      <div class="field"><label for="CF-body">Message</label><textarea id="CF-body" name="contact[body]" rows="6" required>{{ form.body }}</textarea></div>
+      <button class="btn btn--solid" type="submit">Send message</button>
+    {%- endform -%}
+  </div>
+</section>
+{% schema %}
+{ "name": "Contact form", "settings": [] }
+{% endschema %}

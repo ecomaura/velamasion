@@ -1,0 +1,28 @@
+{
+  "sections": {
+    "story": {
+      "type": "image-with-text",
+      "settings": {
+        "eyebrow": "Our story",
+        "heading": "Candles built around a feeling.",
+        "text": "<p>The Maison creates candles around emotions rather than only fragrances. Air, Earth, Water and Fire each stand for a feeling worth making room for.</p><p>Add your brand story here.</p>",
+        "button_label": "",
+        "image_left": false,
+        "bg": "ivory"
+      }
+    },
+    "elements": {
+      "type": "image-columns",
+      "blocks": {
+        "e1": { "type": "column", "settings": { "title": "Air", "text": "Air gives us freedom." } },
+        "e2": { "type": "column", "settings": { "title": "Earth", "text": "Earth gives us grounding." } },
+        "e3": { "type": "column", "settings": { "title": "Water", "text": "Water gives us peace." } },
+        "e4": { "type": "column", "settings": { "title": "Fire", "text": "Fire gives us passion." } }
+      },
+      "block_order": ["e1", "e2", "e3", "e4"],
+      "settings": { "bg": "alt" }
+    },
+    "newsletter": { "type": "newsletter", "settings": { "bg": "forest" } }
+  },
+  "order": ["story", "elements", "newsletter"]
+}

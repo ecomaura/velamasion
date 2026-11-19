@@ -1,0 +1,22 @@
+{%- paginate collections by 12 -%}
+<section class="section">
+  <div class="container">
+    <div class="center"><span class="eyebrow">Shop</span><h1>Collections</h1></div>
+    <div class="product-grid" style="--cols:3;margin-top:clamp(32px,5vw,56px)">
+      {%- for collection in collections -%}
+        <a class="coll-card" href="{{ collection.url }}">
+          <div class="media media--4x5 zoom">
+            {%- if collection.featured_image -%}{{ collection.featured_image | image_url: width: 900 | image_tag: loading: 'lazy', sizes: '(min-width: 960px) 33vw, 50vw', alt: collection.title }}{%- else -%}{{ 'collection-1' | placeholder_svg_tag: 'media-placeholder' }}{%- endif -%}
+          </div>
+          <h3>{{ collection.title }}</h3>
+          <span class="link-arrow">Shop{% render 'icon', name: 'arrow' %}</span>
+        </a>
+      {%- endfor -%}
+    </div>
+    {% render 'pagination', paginate: paginate %}
+  </div>
+</section>
+{%- endpaginate -%}
+{% schema %}
+{ "name": "Collections list", "settings": [] }
+{% endschema %}

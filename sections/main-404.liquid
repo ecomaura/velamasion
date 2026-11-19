@@ -1,0 +1,17 @@
+<section class="section">
+  <div class="container center" style="padding-block:clamp(24px,6vw,80px)">
+    <span class="eyebrow">Error 404</span>
+    <h1>{{ section.settings.heading }}</h1>
+    <p class="muted" style="margin:20px auto 32px">{{ section.settings.text }}</p>
+    <a class="btn btn--solid" href="{{ routes.all_products_collection_url }}">Continue shopping</a>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "404",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "This page has drifted away." },
+    { "type": "textarea", "id": "text", "label": "Text", "default": "The page you are looking for may have moved. Let's find you something to light instead." }
+  ]
+}
+{% endschema %}
