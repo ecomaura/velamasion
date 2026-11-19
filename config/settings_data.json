@@ -1,0 +1,23 @@
+{
+  "current": {
+    "color_primary": "#1F3D2E",
+    "color_primary_contrast": "#FAF6EC",
+    "color_bg": "#FAF6EC",
+    "color_bg_alt": "#F3ECDD",
+    "color_accent": "#C9AE7C",
+    "color_accent_text": "#8A6F3E",
+    "color_text": "#1E2B24",
+    "color_muted": "#66705F",
+    "color_line": "#E3D9C4",
+    "heading_font": "Cormorant Garamond",
+    "body_font": "Jost",
+    "heading_scale": 100,
+    "image_warmth": 8,
+    "image_frame": true,
+    "image_zoom": true,
+    "page_width": 1480,
+    "logo_width": 140,
+    "free_shipping_threshold": 999,
+    "cart_note_text": "Shipping and taxes are calculated at checkout."
+  }
+}
