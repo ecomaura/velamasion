@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "current": {
     "color_primary": "#1F3D2E",
@@ -16,8 +25,11 @@
     "image_frame": true,
     "image_zoom": true,
     "page_width": 1480,
-    "logo_width": 140,
+    "logo": "shopify://shop_images/WhatsApp_Image_2026-11-17_at_16.20.52.jpg",
+    "logo_width": 210,
+    "favicon": "shopify://shop_images/WhatsApp_Image_2026-11-17_at_16.20.52.jpg",
     "free_shipping_threshold": 999,
-    "cart_note_text": "Shipping and taxes are calculated at checkout."
+    "cart_note_text": "Shipping and taxes are calculated at checkout.",
+    "content_for_index": []
   }
 }
