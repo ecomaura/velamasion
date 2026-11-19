@@ -1,0 +1,41 @@
+{%- paginate search.results by 12 -%}
+<section class="section search-page">
+  <div class="container">
+    <div class="center">
+      <span class="eyebrow">Search</span>
+      <h1>{% if search.performed %}Results{% else %}Find your candle{% endif %}</h1>
+    </div>
+    <form class="search-form search-page-form" action="{{ routes.search_url }}" method="get" role="search">
+      <input type="search" name="q" value="{{ search.terms | escape }}" placeholder="Search candles" aria-label="Search">
+      <input type="hidden" name="type" value="product,article,page">
+      <button type="submit" aria-label="Search">{% render 'icon', name: 'search' %}</button>
+    </form>
+
+    {%- if search.performed -%}
+      <p class="muted search-count">{{ search.results_count }} {% if search.results_count == 1 %}result{% else %}results{% endif %} for “{{ search.terms | escape }}”</p>
+      {%- if search.results_count > 0 -%}
+        <div class="product-grid" style="--cols:4">
+          {%- for item in search.results -%}
+            {%- if item.object_type == 'product' -%}
+              {% render 'product-card', product: item %}
+            {%- else -%}
+              <article class="result">
+                <span class="eyebrow">{{ item.object_type | capitalize }}</span>
+                <h3><a href="{{ item.url }}">{{ item.title }}</a></h3>
+                <p class="muted">{{ item.content | strip_html | truncate: 140 }}</p>
+                <a class="link-arrow" href="{{ item.url }}">Read{% render 'icon', name: 'arrow' %}</a>
+              </article>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+        {% render 'pagination', paginate: paginate %}
+      {%- else -%}
+        <div class="empty-state"><h2>Nothing matched</h2><p class="muted" style="margin-inline:auto">Try a different word, such as a fragrance note or mood.</p></div>
+      {%- endif -%}
+    {%- endif -%}
+  </div>
+</section>
+{%- endpaginate -%}
+{% schema %}
+{ "name": "Search results", "settings": [] }
+{% endschema %}

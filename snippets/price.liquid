@@ -1,11 +1,24 @@
-{%- comment -%} Params: product {%- endcomment -%}
+{%- comment -%} Params: product, variant (optional – overrides product pricing) {%- endcomment -%}
+{%- liquid
+  if variant != blank
+    assign p = variant.price
+    assign cp = variant.compare_at_price
+    assign avail = variant.available
+    assign varies = false
+  else
+    assign p = product.price
+    assign cp = product.compare_at_price
+    assign avail = product.available
+    assign varies = product.price_varies
+  endif
+-%}
 <span class="price">
-  {%- if product.compare_at_price > product.price and product.available -%}
-    <s class="price-was">{{ product.compare_at_price | money }}</s>
-    <span class="price-now">{{ product.price | money }}</span>
-  {%- elsif product.price_varies -%}
+  {%- if cp > p and avail -%}
+    <s class="price-was">{{ cp | money }}</s>
+    <span class="price-now">{{ p | money }}</span>
+  {%- elsif varies -%}
     <span class="price-now"><small>From</small> {{ product.price_min | money }}</span>
   {%- else -%}
-    <span class="price-now">{{ product.price | money }}</span>
+    <span class="price-now">{{ p | money }}</span>
   {%- endif -%}
 </span>

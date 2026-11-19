@@ -1,0 +1,16 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "info": { "type": "accordion", "settings": { "heading": "Product information", "content": "<p>7 oz soy wax in an amber glass jar. Clean fragrance, poured in India.</p>" } },
+        "care": { "type": "accordion", "settings": { "heading": "Candle care", "content": "<p>Always burn within sight, on a heat-safe surface, away from children, pets and anything flammable. Trim the wick before each use.</p>" } },
+        "ship": { "type": "accordion", "settings": { "heading": "Shipping", "content": "<p>Complimentary shipping on orders above ₹999. Delivery details are shown at checkout.</p>" } }
+      },
+      "block_order": ["info", "care", "ship"],
+      "settings": { "show_dynamic_checkout": false }
+    },
+    "related": { "type": "related-products", "settings": { "heading": "You may also like", "count": 4 } }
+  },
+  "order": ["main", "related"]
+}

@@ -1,0 +1,99 @@
+{%- assign current_variant = product.selected_or_first_available_variant -%}
+{%- assign active_media = current_variant.featured_media.id | default: product.featured_media.id -%}
+{%- assign form_id = 'product-form-' | append: section.id -%}
+<section class="section pdp-section" data-product-section data-section-id="{{ section.id }}" data-product-url="{{ product.url }}">
+  <div class="container pdp">
+    <div class="gal">
+      <div class="gal-stage framed">
+        {%- for media in product.media -%}
+          {%- assign alt_t = media.alt | default: product.title -%}
+          <div class="gal-main media media--4x5{% if media.id == active_media %} is-active{% endif %}" data-media-id="{{ media.id }}">
+            {%- if media.media_type == 'image' -%}
+              {{ media | image_url: width: 1400 | image_tag: loading: 'eager', sizes: '(min-width: 960px) 52vw, 100vw', widths: '500, 700, 900, 1100, 1400', alt: alt_t }}
+            {%- else -%}
+              {{ media | media_tag: image_size: '1400x', loading: 'lazy' }}
+            {%- endif -%}
+          </div>
+        {%- else -%}
+          <div class="gal-main media media--4x5 is-active">{{ 'product-1' | placeholder_svg_tag: 'media-placeholder' }}</div>
+        {%- endfor -%}
+      </div>
+      {%- if product.media.size > 1 -%}
+        <div class="thumbs">
+          {%- for media in product.media -%}
+            <button type="button" class="thumb media media--1x1{% if media.id == active_media %} is-active{% endif %}" data-thumb="{{ media.id }}" aria-label="View image {{ forloop.index }}">
+              {{ media.preview_image | image_url: width: 240 | image_tag: loading: 'lazy', sizes: '120px', alt: '' }}
+            </button>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+    </div>
+
+    <div class="pdp-info">
+      <nav class="crumb" aria-label="Breadcrumb"><a href="{{ routes.all_products_collection_url }}">Shop</a>{%- if collection %} / <a href="{{ collection.url }}">{{ collection.title }}</a>{%- endif -%}</nav>
+      <h1>{{ product.title }}</h1>
+      <div data-price>{% render 'price', product: product, variant: current_variant %}</div>
+      <p class="pdp-tax">{% if cart.taxes_included %}Tax included. {% endif %}Shipping calculated at checkout.</p>
+
+      {%- form 'product', product, id: form_id, class: 'pdp-form', data-ajax-cart: 'true' -%}
+        <input type="hidden" name="id" value="{{ current_variant.id }}">
+        {%- unless product.has_only_default_variant -%}
+          {%- for option in product.options_with_values -%}
+            <fieldset class="opt">
+              <legend>{{ option.name }}</legend>
+              <div class="opt-values">
+                {%- for value in option.values -%}
+                  <input type="radio" id="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}" name="option-{{ option.position }}" value="{{ value | escape }}"{% if option.selected_value == value %} checked{% endif %}>
+                  <label for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}">{{ value }}</label>
+                {%- endfor -%}
+              </div>
+            </fieldset>
+          {%- endfor -%}
+        {%- endunless -%}
+        <div class="buy">
+          <div class="qty">
+            <button type="button" data-step="-1" aria-label="Decrease quantity">{% render 'icon', name: 'minus' %}</button>
+            <input type="number" name="quantity" value="1" min="1" data-qty-input aria-label="Quantity">
+            <button type="button" data-step="1" aria-label="Increase quantity">{% render 'icon', name: 'plus' %}</button>
+          </div>
+          <button type="submit" class="btn btn--solid buy-btn" data-submit{% unless current_variant.available %} disabled{% endunless %}>
+            {%- if current_variant.available -%}Add to bag{%- else -%}Sold out{%- endif -%}
+          </button>
+        </div>
+        <p class="form-msg form-msg--error" data-form-error hidden></p>
+        {%- if section.settings.show_dynamic_checkout -%}{{ form | payment_button }}{%- endif -%}
+      {%- endform -%}
+
+      <div class="acc">
+        {%- if product.description != blank -%}
+          <details open><summary>Description</summary><div class="rte">{{ product.description }}</div></details>
+        {%- endif -%}
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'accordion' -%}
+            <details {{ block.shopify_attributes }}><summary>{{ block.settings.heading }}</summary><div class="rte">{{ block.settings.content }}</div></details>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+  <script type="application/json" data-variants>{{ product.variants | json }}</script>
+</section>
+<script type="application/ld+json">{{ product | structured_data }}</script>
+
+{% schema %}
+{
+  "name": "Product",
+  "settings": [
+    { "type": "checkbox", "id": "show_dynamic_checkout", "label": "Show dynamic checkout buttons", "info": "Express checkout such as Shop Pay and Google Pay.", "default": false }
+  ],
+  "blocks": [
+    {
+      "type": "accordion", "name": "Accordion", "limit": 6,
+      "settings": [
+        { "type": "text", "id": "heading", "label": "Heading", "default": "Candle care" },
+        { "type": "richtext", "id": "content", "label": "Content", "default": "<p>Always burn within sight, on a heat-safe surface, away from children, pets and anything flammable. Trim the wick before each use.</p>" }
+      ]
+    }
+  ]
+}
+{% endschema %}
