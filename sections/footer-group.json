@@ -1,0 +1,16 @@
+{
+  "name": "Footer group",
+  "type": "footer",
+  "sections": {
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "shop": { "type": "menu", "settings": { "heading": "Shop", "menu": "main-menu" } },
+        "maison": { "type": "menu", "settings": { "heading": "Maison", "menu": "footer" } }
+      },
+      "block_order": ["shop", "maison"],
+      "settings": { "about": "Candles for the moments that matter." }
+    }
+  },
+  "order": ["footer"]
+}

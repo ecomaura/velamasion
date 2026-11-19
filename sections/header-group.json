@@ -1,0 +1,10 @@
+{
+  "name": "Header group",
+  "type": "header",
+  "sections": {
+    "announcement-bar": { "type": "announcement-bar" },
+    "header": { "type": "header" },
+    "cart-drawer": { "type": "cart-drawer" }
+  },
+  "order": ["announcement-bar", "header", "cart-drawer"]
+}

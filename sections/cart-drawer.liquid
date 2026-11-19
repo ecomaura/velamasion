@@ -1,0 +1,52 @@
+{%- assign threshold = settings.free_shipping_threshold | times: 100 -%}
+<aside class="drawer" id="cart-drawer" aria-label="Shopping bag" aria-hidden="true">
+  <div class="drawer-head"><h3>Your bag</h3><button class="ib" type="button" data-close aria-label="Close">{% render 'icon', name: 'close' %}</button></div>
+  <div class="drawer-body">
+    {%- if cart.item_count > 0 -%}
+      {%- if threshold > 0 -%}
+        {%- assign remaining = threshold | minus: cart.total_price -%}
+        {%- assign pct = cart.total_price | times: 100 | divided_by: threshold -%}
+        {%- if pct > 100 %}{% assign pct = 100 %}{% endif -%}
+        <div class="ship-bar">
+          {%- if remaining > 0 -%}Add <strong>{{ remaining | money_without_trailing_zeros }}</strong> more for complimentary shipping.
+          {%- else -%}<strong>You've unlocked complimentary shipping.</strong>{%- endif -%}
+          <div class="ship-track"><i style="width:{{ pct }}%"></i></div>
+        </div>
+      {%- endif -%}
+      {%- for item in cart.items -%}
+        <div class="cart-line" data-line="{{ forloop.index }}">
+          <a class="media zoom" href="{{ item.url }}">
+            {%- if item.image -%}{{ item.image | image_url: width: 240 | image_tag: loading: 'lazy', alt: item.product.title, sizes: '84px' }}{%- else -%}{{ 'image' | placeholder_svg_tag: 'media-placeholder' }}{%- endif -%}
+          </a>
+          <div>
+            <h4><a href="{{ item.url }}">{{ item.product.title }}</a></h4>
+            {%- unless item.product.has_only_default_variant -%}<div class="variant">{{ item.variant.title }}</div>{%- endunless -%}
+            <div class="qty">
+              <button type="button" data-qty="{{ forloop.index }}" data-qty-value="{{ item.quantity | minus: 1 }}" aria-label="Decrease quantity">{% render 'icon', name: 'minus' %}</button>
+              <span>{{ item.quantity }}</span>
+              <button type="button" data-qty="{{ forloop.index }}" data-qty-value="{{ item.quantity | plus: 1 }}" aria-label="Increase quantity">{% render 'icon', name: 'plus' %}</button>
+            </div>
+            <button class="line-remove" type="button" data-qty="{{ forloop.index }}" data-qty-value="0">Remove</button>
+          </div>
+          <div class="price">{{ item.final_line_price | money }}</div>
+        </div>
+      {%- endfor -%}
+    {%- else -%}
+      <div class="cart-empty">
+        <p>Your bag is empty.</p>
+        <a class="btn btn--solid" href="{{ routes.all_products_collection_url }}">Browse the collection</a>
+      </div>
+    {%- endif -%}
+  </div>
+  {%- if cart.item_count > 0 -%}
+    <div class="drawer-foot">
+      <div class="cart-subtotal"><span>Subtotal</span><span>{{ cart.total_price | money }}</span></div>
+      {%- if settings.cart_note_text != blank -%}<p class="cart-note">{{ settings.cart_note_text }}</p>{%- endif -%}
+      <form action="{{ routes.cart_url }}" method="post"><button class="btn btn--solid btn--block" type="submit" name="checkout">Checkout</button></form>
+      <p style="margin-top:14px;text-align:center"><a class="link-arrow" href="{{ routes.cart_url }}">View bag</a></p>
+    </div>
+  {%- endif -%}
+</aside>
+{% schema %}
+{ "name": "Cart drawer", "settings": [] }
+{% endschema %}
