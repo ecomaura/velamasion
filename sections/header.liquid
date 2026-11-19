@@ -1,5 +1,5 @@
 {%- assign menu = linklists[section.settings.menu] -%}
-<header class="site-header" data-header>
+<header class="site-header site-header--{{ settings.header_style }}" data-header>
   <div class="header-bar">
     <div class="header-left">
       <button class="ib burger" type="button" data-open="menu-drawer" aria-label="Open menu" aria-controls="menu-drawer">{% render 'icon', name: 'menu' %}</button>
@@ -17,8 +17,10 @@
 
     <a class="logo" href="{{ routes.root_url }}" aria-label="{{ shop.name }}">
       {%- if settings.logo != blank -%}
-        {{ settings.logo | image_url: width: 400 | image_tag: alt: shop.name, loading: 'eager' }}
-      {%- else -%}{{ shop.name }}{%- endif -%}
+        {{ settings.logo | image_url: width: 500 | image_tag: alt: shop.name, loading: 'eager', class: 'logo-img' }}
+      {%- else -%}
+        <img class="logo-img" src="{{ 'logo-mark.png' | asset_url }}" alt="{{ shop.name | escape }}" width="386" height="562" loading="eager">
+      {%- endif -%}
     </a>
 
     <div class="header-icons">

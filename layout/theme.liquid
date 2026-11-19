@@ -27,7 +27,7 @@
   <meta property="og:title" content="{{ page_title | escape }}">
   <meta property="og:type" content="{% if template.name == 'product' %}product{% elsif template.name == 'article' %}article{% else %}website{% endif %}">
   <meta property="og:description" content="{{ page_description | default: shop.description | escape }}">
-  {%- assign og_image = page_image | default: settings.logo -%}
+  {%- assign og_image = page_image | default: settings.logo_footer | default: settings.logo -%}
   {%- if og_image != blank %}<meta property="og:image" content="https:{{ og_image | image_url: width: 1200 }}">{% endif -%}
   <meta name="twitter:card" content="summary_large_image">
 

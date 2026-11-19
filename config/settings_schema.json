@@ -10,65 +10,261 @@
   {
     "name": "Colours",
     "settings": [
-      { "type": "header", "content": "Brand palette" },
-      { "type": "color", "id": "color_primary", "label": "Primary – deep forest green", "default": "#1F3D2E" },
-      { "type": "color", "id": "color_primary_contrast", "label": "Text on primary", "default": "#FAF6EC" },
-      { "type": "color", "id": "color_bg", "label": "Secondary – warm ivory (page background)", "default": "#FAF6EC" },
-      { "type": "color", "id": "color_bg_alt", "label": "Ivory, deeper (alternate sections)", "default": "#F3ECDD" },
-      { "type": "color", "id": "color_accent", "label": "Accent – champagne gold", "default": "#C9AE7C" },
-      { "type": "color", "id": "color_accent_text", "label": "Champagne gold, text-safe", "info": "A deeper gold used for small text on ivory so it stays readable.", "default": "#8A6F3E" },
-      { "type": "header", "content": "Text and lines" },
-      { "type": "color", "id": "color_text", "label": "Body text", "default": "#1E2B24" },
-      { "type": "color", "id": "color_muted", "label": "Muted text", "default": "#66705F" },
-      { "type": "color", "id": "color_line", "label": "Lines and borders", "default": "#E3D9C4" }
+      {
+        "type": "header",
+        "content": "Brand palette"
+      },
+      {
+        "type": "color",
+        "id": "color_primary",
+        "label": "Primary – deep forest green",
+        "default": "#1F3D2E"
+      },
+      {
+        "type": "color",
+        "id": "color_primary_contrast",
+        "label": "Text on primary",
+        "default": "#FAF6EC"
+      },
+      {
+        "type": "color",
+        "id": "color_bg",
+        "label": "Secondary – warm ivory (page background)",
+        "default": "#FAF6EC"
+      },
+      {
+        "type": "color",
+        "id": "color_bg_alt",
+        "label": "Ivory, deeper (alternate sections)",
+        "default": "#F3ECDD"
+      },
+      {
+        "type": "color",
+        "id": "color_accent",
+        "label": "Accent – champagne gold",
+        "default": "#C9AE7C"
+      },
+      {
+        "type": "color",
+        "id": "color_accent_text",
+        "label": "Champagne gold, text-safe",
+        "info": "A deeper gold used for small text on ivory so it stays readable.",
+        "default": "#8A6F3E"
+      },
+      {
+        "type": "header",
+        "content": "Text and lines"
+      },
+      {
+        "type": "color",
+        "id": "color_text",
+        "label": "Body text",
+        "default": "#1E2B24"
+      },
+      {
+        "type": "color",
+        "id": "color_muted",
+        "label": "Muted text",
+        "default": "#66705F"
+      },
+      {
+        "type": "color",
+        "id": "color_line",
+        "label": "Lines and borders",
+        "default": "#E3D9C4"
+      }
     ]
   },
   {
     "name": "Typography",
     "settings": [
-      { "type": "paragraph", "content": "Fonts load from Google Fonts. Type the exact family name." },
-      { "type": "text", "id": "heading_font", "label": "Heading font (serif)", "default": "Cormorant Garamond" },
-      { "type": "text", "id": "body_font", "label": "Body font (sans-serif)", "default": "Jost" },
-      { "type": "range", "id": "heading_scale", "label": "Heading size", "min": 90, "max": 125, "step": 5, "unit": "%", "default": 100 }
+      {
+        "type": "paragraph",
+        "content": "Fonts load from Google Fonts. Type the exact family name."
+      },
+      {
+        "type": "text",
+        "id": "heading_font",
+        "label": "Heading font (serif)",
+        "default": "Cormorant Garamond"
+      },
+      {
+        "type": "text",
+        "id": "body_font",
+        "label": "Body font (sans-serif)",
+        "default": "Jost"
+      },
+      {
+        "type": "range",
+        "id": "heading_scale",
+        "label": "Heading size",
+        "min": 90,
+        "max": 125,
+        "step": 5,
+        "unit": "%",
+        "default": 100
+      }
     ]
   },
   {
     "name": "Photography",
     "settings": [
-      { "type": "paragraph", "content": "Gives every photo a warm, editorial finish without editing the originals." },
-      { "type": "range", "id": "image_warmth", "label": "Warm tone", "min": 0, "max": 25, "step": 1, "unit": "%", "default": 8 },
-      { "type": "checkbox", "id": "image_frame", "label": "Show thin champagne frame on feature images", "default": true },
-      { "type": "checkbox", "id": "image_zoom", "label": "Slow zoom on image hover", "default": true }
+      {
+        "type": "paragraph",
+        "content": "Gives every photo a warm, editorial finish without editing the originals."
+      },
+      {
+        "type": "range",
+        "id": "image_warmth",
+        "label": "Warm tone",
+        "min": 0,
+        "max": 25,
+        "step": 1,
+        "unit": "%",
+        "default": 8
+      },
+      {
+        "type": "checkbox",
+        "id": "image_frame",
+        "label": "Show thin champagne frame on feature images",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "image_zoom",
+        "label": "Slow zoom on image hover",
+        "default": true
+      }
     ]
   },
   {
     "name": "Layout",
     "settings": [
-      { "type": "range", "id": "page_width", "label": "Maximum page width", "min": 1200, "max": 1800, "step": 20, "unit": "px", "default": 1480 }
+      {
+        "type": "range",
+        "id": "page_width",
+        "label": "Maximum page width",
+        "min": 1200,
+        "max": 1800,
+        "step": 20,
+        "unit": "px",
+        "default": 1480
+      }
     ]
   },
   {
     "name": "Logo and favicon",
     "settings": [
-      { "type": "image_picker", "id": "logo", "label": "Logo image", "info": "Leave empty to show the shop name as a text wordmark." },
-      { "type": "range", "id": "logo_width", "label": "Logo width", "min": 60, "max": 260, "step": 10, "unit": "px", "default": 140 },
-      { "type": "image_picker", "id": "favicon", "label": "Favicon", "info": "Square PNG, at least 96 x 96 px." }
+      {
+        "type": "header",
+        "content": "Header"
+      },
+      {
+        "type": "select",
+        "id": "header_style",
+        "label": "Header background",
+        "info": "The gold logo is designed for dark backgrounds. Forest green gives it the best contrast.",
+        "default": "forest",
+        "options": [
+          {
+            "value": "forest",
+            "label": "Deep forest green"
+          },
+          {
+            "value": "ivory",
+            "label": "Warm ivory"
+          }
+        ]
+      },
+      {
+        "type": "image_picker",
+        "id": "logo",
+        "label": "Header logo (monogram)",
+        "info": "Leave empty to use the built-in Vela Maison monogram. Transparent PNG, gold on transparent works best."
+      },
+      {
+        "type": "range",
+        "id": "logo_height",
+        "label": "Header logo height",
+        "min": 40,
+        "max": 130,
+        "step": 2,
+        "unit": "px",
+        "default": 84
+      },
+      {
+        "type": "header",
+        "content": "Footer"
+      },
+      {
+        "type": "image_picker",
+        "id": "logo_footer",
+        "label": "Footer logo (full lockup)",
+        "info": "Leave empty to use the built-in Vela Maison lockup."
+      },
+      {
+        "type": "range",
+        "id": "logo_footer_width",
+        "label": "Footer logo width",
+        "min": 100,
+        "max": 360,
+        "step": 10,
+        "unit": "px",
+        "default": 200
+      },
+      {
+        "type": "header",
+        "content": "Favicon"
+      },
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "Favicon",
+        "info": "Square PNG, at least 96 x 96 px. Leave empty for the built-in one."
+      }
     ]
   },
   {
     "name": "Cart",
     "settings": [
-      { "type": "number", "id": "free_shipping_threshold", "label": "Free shipping above (shop currency)", "info": "Shows a progress message in the cart. Set 0 to hide.", "default": 999 },
-      { "type": "textarea", "id": "cart_note_text", "label": "Cart note", "default": "Shipping and taxes are calculated at checkout." }
+      {
+        "type": "number",
+        "id": "free_shipping_threshold",
+        "label": "Free shipping above (shop currency)",
+        "info": "Shows a progress message in the cart. Set 0 to hide.",
+        "default": 999
+      },
+      {
+        "type": "textarea",
+        "id": "cart_note_text",
+        "label": "Cart note",
+        "default": "Shipping and taxes are calculated at checkout."
+      }
     ]
   },
   {
     "name": "Social media",
     "settings": [
-      { "type": "url", "id": "social_instagram", "label": "Instagram" },
-      { "type": "url", "id": "social_facebook", "label": "Facebook" },
-      { "type": "url", "id": "social_pinterest", "label": "Pinterest" },
-      { "type": "url", "id": "social_youtube", "label": "YouTube" }
+      {
+        "type": "url",
+        "id": "social_instagram",
+        "label": "Instagram"
+      },
+      {
+        "type": "url",
+        "id": "social_facebook",
+        "label": "Facebook"
+      },
+      {
+        "type": "url",
+        "id": "social_pinterest",
+        "label": "Pinterest"
+      },
+      {
+        "type": "url",
+        "id": "social_youtube",
+        "label": "YouTube"
+      }
     ]
   }
 ]

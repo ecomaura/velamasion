@@ -276,3 +276,14 @@ table.acct-table{width:100%;border-collapse:collapse;font-size:.92rem}
 
 @media(max-width:960px){.acct-grid{grid-template-columns:1fr}}
 @media(max-width:520px){.field-row{grid-template-columns:1fr}}
+
+/* Password page on forest, for the gold logo */
+.pw{background:var(--c-primary);color:var(--c-on-primary)}
+.pw h1{color:var(--c-on-primary)}.pw .eyebrow{color:var(--c-accent)}
+.pw .muted,.pw-owner{color:color-mix(in srgb,var(--c-on-primary) 75%,transparent)}
+.pw .logo img.logo-img{width:min(260px,70vw);height:auto;margin-inline:auto}
+.pw .newsletter-row{border-color:var(--c-accent)}
+.pw .newsletter-row input{color:var(--c-on-primary)}
+.pw .btn{border-color:var(--c-accent);color:var(--c-on-primary)}
+.pw .btn--solid{background:var(--c-accent);color:var(--c-primary)}
+.pw .form-msg{color:var(--c-text)}

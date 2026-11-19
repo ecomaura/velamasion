@@ -25,11 +25,12 @@
     "image_frame": true,
     "image_zoom": true,
     "page_width": 1480,
-    "logo": "shopify://shop_images/WhatsApp_Image_2026-11-17_at_16.20.52-removebg-preview.png",
-    "logo_width": 210,
     "favicon": "shopify://shop_images/WhatsApp_Image_2026-11-17_at_16.20.52.jpg",
     "free_shipping_threshold": 999,
     "cart_note_text": "Shipping and taxes are calculated at checkout.",
-    "content_for_index": []
+    "content_for_index": [],
+    "header_style": "forest",
+    "logo_height": 84,
+    "logo_footer_width": 200
   }
 }
